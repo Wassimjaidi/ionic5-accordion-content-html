@@ -1,27 +1,53 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-content {
+    --background: var(--ion-color-light);
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.accordion-list {
+    margin-bottom: 4px;
+    --ion-item-background: #fff;
+    .section,
+    .section-active {
+        --min-height: 58px;
+    }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.section {
+    --ion-item-background: #fff;
+    --ion-item-color: #000;
 }
 
-#container a {
-  text-decoration: none;
+.section-active {
+    --ion-item-background: #ffc400;
+    --ion-item-color: #fff;
+    font-weight: 600;
+    ion-icon {
+        color: #fff;
+    }
+}
+
+.child-list {
+    padding: 0px;
+    margin: 0px;
+    .child,
+    .child-active {
+        margin-bottom: 2px;
+    }
+}
+
+.child {
+    --ion-item-background: #e8e7e6;
+    --ion-item-color: #000;
+}
+
+.child-active {
+    --ion-item-background: #fad86b;
+    --ion-item-color: #fff;
+    ion-icon {
+        color: #fff;
+    }
+}
+
+.product-list {
+    padding: 0px;
+    margin: 0px;
 }

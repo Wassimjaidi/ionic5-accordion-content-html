@@ -1,20 +1,95 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<!--<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Blank
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+
+  <ion-card class="welcome-card">
+        <ion-card-header>
+            <ion-card-subtitle>Get Started</ion-card-subtitle>
+            <ion-card-title>Stripe Sample</ion-card-title>
+            <ion-row>
+                <ion-col>
+                    Total Payment
+                </ion-col>
+                <ion-col>
+                    {{currencyIcon}}{{paymentAmount}}
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-input [(ngModel)]="cardDetails.number" type="number" placeholder="Card number"></ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-input [(ngModel)]="cardDetails.expMonth" placeholder="Expire month"></ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-input [(ngModel)]="cardDetails.expYear" type="number" placeholder="Expire year"></ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-input [(ngModel)]="cardDetails.cvc" placeholder="cvc"></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-button expand="full" color="success" (click)="payWithStripe()">Pay with Stripe</ion-button>
+        </ion-card-content>
+    </ion-card>-->
+
+
+
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>
+            Academy Accordion
+        </ion-title>
+        <ion-buttons slot="end">
+            <ion-button (click)="automaticClose = !automaticClose">
+                <ion-icon slot="icon-only" name="close" *ngIf="automaticClose"></ion-icon>
+                <ion-icon slot="icon-only" name="resize" *ngIf="!automaticClose"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <!-- Outer list at the top level (1. level) -->
+    <ion-list *ngFor="let item of listItems; let i = index" class="accordion-list" lines="none" detail="false" no-padding>
+
+        <!-- Header for each section (Specials, Pizza, Drinks) -->
+        <ion-item tappable (click)="toggleSection(i)" [ngClass]="{'section-active': item.open, 'section': !item.open}">
+            <ion-icon slot="start" name="arrow-forward" *ngIf="!item.open"></ion-icon>
+            <ion-icon slot="start" name="arrow-down" *ngIf="item.open"></ion-icon>
+            <ion-label>
+                {{ item.name }}
+            </ion-label>
+        </ion-item>
+
+        <div *ngIf="item.open">
+            <div *ngIf="i === 0">
+                test1
+            </div>
+            <div *ngIf="i === 1">
+                test2
+            </div>
+            <div *ngIf="i === 2">
+                test3
+            </div>
+
+        </div>
+
+    </ion-list>
+
 </ion-content>

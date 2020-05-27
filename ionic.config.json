@@ -1,5 +1,7 @@
 {
   "name": "stripe-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
